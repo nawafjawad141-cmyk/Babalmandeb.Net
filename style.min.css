@@ -1,4 +1,6 @@
-@import url(../fonts/Almarai.css);@-webkit-keyframes animRipple {
+@import url(../fonts/Almarai.css);
+
+@-webkit-keyframes animRipple {
     to {
         transform: scale(3.5);
         opacity: 0
@@ -41,7 +43,6 @@
         margin-left: 100%;
         transform: translateX(0)
     }
-
     0% {
         margin-left: 0;
         transform: translateX(-100%)
@@ -53,7 +54,6 @@
         margin-left: 100%;
         transform: translateX(100%)
     }
-
     0% {
         margin-left: 0;
         transform: translateX(-100%)
@@ -64,13 +64,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Almarai,sans-serif
+    font-family: Almarai, sans-serif
 }
 
 body {
-    background-color: #565656;
-    background: linear-gradient(90deg,#565656,#9d5201);
-    direction: rtl
+    background-color: #2c2c2c;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    direction: rtl;
+    min-height: 100vh
 }
 
 .container {
@@ -78,16 +79,18 @@ body {
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 60px);
-    overflow: hidden
+    overflow: hidden;
+    padding: 20px
 }
 
 .screen {
-    background: linear-gradient(-90deg,#000000#000000,#000000);
+    background: linear-gradient(145deg, #1e1e2f, #2a2a3e);
     position: relative;
-    height: 600px;
-    width: 360px;
-    box-shadow: 0 0 24px #000000;
-    border-radius: 20px
+    height: 620px;
+    width: 380px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    overflow: hidden
 }
 
 .screen-content {
@@ -102,24 +105,19 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 0;
-    -webkit-clip-path: inset(0 0 0 0);
-    clip-path: inset(0 0 0 0)
+    z-index: 0
 }
 
 .screen-background-shape {
-    -moz-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    position: absolute
+    position: absolute;
+    opacity: 0.6
 }
 
 .screen-background-shape1 {
     height: 520px;
     width: 520px;
-    background: #ffff;
+    background: rgba(201, 120, 32, 0.15);
     top: -50px;
     left: 120px;
     border-radius: 72px 0 0 0
@@ -128,7 +126,7 @@ body {
 .screen-background-shape2 {
     height: 220px;
     width: 220px;
-    background: #000000;
+    background: rgba(201, 120, 32, 0.1);
     top: -172px;
     left: 0;
     border-radius: 32px
@@ -137,7 +135,7 @@ body {
 .screen-background-shape3 {
     height: 540px;
     width: 190px;
-    background: linear-gradient(-270deg,#000000,#000000);
+    background: linear-gradient(135deg, rgba(201, 120, 32, 0.08), rgba(0, 0, 0, 0.3));
     top: -24px;
     left: 0;
     border-radius: 32px
@@ -146,388 +144,175 @@ body {
 .screen-background-shape4 {
     height: 400px;
     width: 200px;
-    background: #000000;
+    background: rgba(201, 120, 32, 0.08);
     top: 420px;
     left: 50px;
     border-radius: 60px
 }
 
 .login-form {
-    width: 320px;
-    padding: 137px 30px 30px
+    width: 100%;
+    padding: 120px 25px 30px
 }
 
 .login-field {
-    padding: 20px 0;
-    position: relative
+    padding: 15px 0;
+    position: relative;
+    margin-bottom: 10px
 }
 
 .login-icon {
     position: absolute;
-    top: 30px;
-    color: #000000
+    top: 32px;
+    right: 15px;
+    color: #c97820;
+    font-size: 18px;
+    z-index: 2
 }
 
 .login-input {
     border: 0;
     border-bottom: 2px solid #c97820;
     text-align: center;
-    background: 0 0;
-    padding: 10px 10px 10px 24px;
-    font-weight: 700;
-    width: 75%;
-    transition: .2s
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 40px 12px 15px;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.3s ease;
+    color: #fff;
+    border-radius: 12px 12px 0 0;
+    font-size: 16px
 }
 
-.login-input:active,.login-input:focus,.login-input:hover {
-    outline: 0;
-    border-bottom-color: #000000
+.login-input:focus {
+    outline: none;
+    border-bottom-color: #ff9f4a;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px)
 }
 
-.app-submit,.login-submit {
+.login-input::placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.app-submit,
+.login-submit {
     position: relative;
-    background: #fff;
-    font-size: 14px;
+    background: linear-gradient(135deg, #c97820, #a05a10);
+    font-size: 16px;
     height: 50px;
-    margin-top: 30px;
-    padding: 16px 20px;
-    border-radius: 26px;
-    border: 1px solid #c97820;
+    margin-top: 25px;
+    padding: 0 20px;
+    border-radius: 30px;
+    border: none;
     text-transform: uppercase;
     font-weight: 700;
     display: flex;
     align-items: center;
     width: 100%;
-    color: #000000;
-    box-shadow: 0 2px 2px #000000;
+    color: #fff;
     cursor: pointer;
-    transition: transform .3s .1s ease-out,opacity .1s .3s,background-color .1s 1s;
-    z-index: 1
+    transition: all 0.3s ease;
+    z-index: 1;
+    justify-content: space-between
 }
 
-.app-submit:after,.login-submit:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -1.3rem;
-    margin-top: -1.2rem;
-    width: 38px;
-    height: 38px;
-    border: 2px dotted #fff;
-    border-radius: 50%;
-    border-left: none;
-    border-bottom: none;
-    transition: opacity .1s .2s;
-    opacity: 0
+.app-submit:hover,
+.login-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(201, 120, 32, 0.4);
+    background: linear-gradient(135deg, #da8828, #b56a18)
 }
 
-.app-submit.processing,.login-submit.processing {
-    opacity: .8;
-    border: 0;
-    background-color: #000000;
-    font-size: 0!important;
+.app-submit:active,
+.login-submit:active {
+    transform: translateY(0)
+}
+
+.app-submit.processing,
+.login-submit.processing {
+    opacity: 0.9;
+    background-color: #c97820;
+    font-size: 0 !important;
     width: 50px;
-    height: 50px
-}
-
-.app-submit.processing:after,.login-submit.processing:after {
-    opacity: 1;
-    -webkit-animation: rotate .5s .4s infinite linear;
-    animation: rotate .5s .4s infinite linear
-}
-
-.app-submit.success,.login-submit.success {
-    transition: transform 1s ease-out,opacity .1s .3s,background-color 50ms;
-    transform: scale(100);
-    opacity: 1;
-    z-index: 2
+    height: 50px;
+    margin: 25px auto 0;
+    justify-content: center
 }
 
 .login-submit.processing i {
     display: none
 }
 
-.app-submit.success:after,.login-submit.success:after {
-    transition: opacity .1s 0s;
-    opacity: 0;
-    -webkit-animation: none;
-    animation: none
-}
-
-.app-submit:active,.app-submit:focus,.app-submit:hover,.login-submit:active,.login-submit:focus,.login-submit:hover {
-    border-color: #000000;
-    outline: 0
-}
-
 .button-icon {
     font-size: 24px;
     margin-left: auto;
-    color: #000000
+    color: #fff
 }
 
 .social-login {
-    height: 140px;
-    width: 160px;
     text-align: center;
-    float: left;
     margin-top: 20px;
-    color: #fff
-}
-
-.social-icons {
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-.social-login-icon {
-    padding: 20px 10px;
     color: #fff;
-    text-decoration: none;
-    text-shadow: 0 0 8px #c97820
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px
 }
 
-.social-login-icon:hover {
-    transform: scale(1.5)
+.social-login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px
 }
 
-.network-name,.network-prefix {
-    color: #000000;
-    padding: 10px 0 0 190px;
-    text-align: center;
-    font-size: 60px;
-    font-weight: 700
+.price-icon,
+.sell-point-icon {
+    height: 60px !important;
+    padding: 5px !important;
+    border-radius: 50% !important;
+    width: 60px !important;
+    margin: 0 !important;
+    justify-content: center !important
 }
 
-.network-name {
-    color: #000000;
-    padding: 5px 0 0 120px;
-    font-size: 30px;
-    white-space: nowrap
-}
-
-.svg-icon {
-    cursor: pointer
-}
-
-.svg-icon path {
-    stroke: rgba(255,255,255,.9);
-    fill: rgba(255,255,255,.9);
-    stroke-width: 1
-}
-
-.logo {
-    width: 80px;
-    left: 90px
+.price-icon .button-text,
+.sell-point-icon .button-text {
+    display: none
 }
 
 .contact {
-    margin-top: 10px
+    font-size: 13px;
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.8)
 }
 
-.contact.back {
-    margin-top: 65px
+.contact a {
+    color: #c97820;
+    text-decoration: none
 }
 
-.price-icon {
-    height: 60px;
-    padding: 5px;
-    border-radius: 100px;
-    width: 60px;
-    margin: -20px 50px 0 0
+.contact a:hover {
+    text-decoration: underline
 }
 
-.app-logout.back,.sell-point-icon {
-    padding: 5px;
-    border-radius: 100px;
-    height: 70px;
-    width: 70px;
-    margin: -15px 45px 0 0
-}
-
-.sell-point-icon {
-    margin: 0
-}
-
-.password-field {
-    display: none
-}
-
-#login.inactive,.app {
-    opacity: 0;
-    transform: scale(1.1)
-}
-
-#login {
-    transition: opacity .1s,transform .3s
-}
-
-.app {
-    display: none;
-    transition: opacity .1s,transform .3s cubic-bezier(.68,-.45,.465,1.25);
-    transform: scale(1.2)
-}
-
-#login,.app.active {
-    opacity: 1
-}
-
-.app-logout {
-    cursor: pointer;
-    transition: transform .4s .2s,opacity .1s .7s,background-color .1s .2s;
-    transform: scale(0)
-}
-
-.app.active,.app.active .app-logout {
-    transform: scale(1)
-}
-
-.app-logout.clicked {
-    border: 0;
-    background-color: #000000;
-    font-size: 0;
-    transform: scale(30)!important;
-    opacity: .9
-}
-
-.error-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #c97820;
-    display: none
-}
-
-.error-container.active {
-    display: block;
-    z-index: 2
-}
-
-.error-container .error .fade-in {
-    transform: scale(0);
-    padding: 20px;
-    background-color: #000000;
-    border-radius: 15px
-}
-
-.error-container.zoom .error .fade-in {
-    transform: scale(1);
-    transition: transform .1s .1s ease-out
-}
-
-.error {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.network-prefix {
+    color: #c97820;
     text-align: center;
     font-size: 14px;
-    width: 60%;
-    max-width: 350px;
-    min-width: 300px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 20px
+}
+
+.network-name {
     color: #fff;
-    transform: translate(-50%,-50%)
-}
-
-.price-div,.sell-point-div,.status-div {
-    padding: 10px 10px 0;
-    height: 439px;
-    width: 100%
-}
-
-div.wrapper {
-    height: 100%;
-    overflow: auto;
-    background: #c97820;
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center
-}
-
-.status-div div.wrapper {
-    height: unset
-}
-
-div.wrapper::-webkit-scrollbar {
-    width: .1em
-}
-
-div.wrapper::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,.3)
-}
-
-div.wrapper::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    outline: 1px solid #000000
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 14px
-}
-
-table td {
-    color: #fff;
-    background-color: #000000;
-    padding: 10px 4px 10px 0
-}
-
-table td:first-child {
-    font-weight: 700
-}
-
-tbody td:hover:before,td,th {
-    background-color: rgba(255,255,255,.2)
-}
-
-td,th {
-    font-size: 11px;
-    padding: 15px;
-    background: #ddd;
-    border-bottom: 2px solid #fff;
-    color: #fff
-}
-
-tbody tr:last-child td {
-    border-bottom: 2px solid #000000
-}
-
-.info,tbody td,th {
-    text-align: center
-}
-
-thead th {
-    background-color: #000000
-}
-
-tbody tr:hover {
-    background-color: rgba(255,255,255,.3)
-}
-
-.sell-point td {
-    font-size: 13px
-}
-
-tbody td:hover:before {
-    content: "";
-    left: 0;
-    right: 0;
-    top: -9999px;
-    bottom: -9999px;
-    z-index: -1
-}
-
-.title {
-    border-radius: 15px;
-    padding: 10px 0;
-    font-weight: 900;
-    font-size: 20px;
-    color: #c97820;
-    background: linear-gradient(45deg,#000000,#000000);
-    margin: 15px
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-top: 5px
 }
 
 [data-fit-text] {
@@ -535,77 +320,223 @@ tbody td:hover:before {
     width: 220px
 }
 
-.section {
-    width: 318px;
-    position: absolute;
-    overflow: hidden;
-    top: 200px
+.logo {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto 0;
+    position: relative;
+    left: auto;
+    display: flex;
+    justify-content: center
 }
 
-.section .marquee {
-    -webkit-animation: marquee 7s linear infinite;
-    animation: marquee 10s linear infinite;
-    display: inline-block;
-    white-space: nowrap;
-    height: 30px;
+.svg-icon {
+    width: 70px;
+    height: 70px
+}
+
+.svg-icon path {
+    stroke: #c97820;
+    fill: #c97820;
+    stroke-width: 1
+}
+
+#login.inactive,
+.app {
+    opacity: 0;
+    transform: scale(1.1)
+}
+
+#login {
+    transition: opacity 0.3s, transform 0.3s
+}
+
+.app {
+    display: none;
+    transition: opacity 0.3s, transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
+    transform: scale(1.2)
+}
+
+#login.active,
+.app.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1)
+}
+
+.app-logout {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(1)
+}
+
+.price-div,
+.sell-point-div,
+.status-div {
+    padding: 15px;
+    height: auto;
+    width: 100%
+}
+
+.wrapper {
+    height: auto;
+    max-height: 400px;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 5px
+}
+
+.wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background: #c97820;
+    border-radius: 10px
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
     font-size: 13px
 }
 
+td,
+th {
+    padding: 12px 8px;
+    text-align: center;
+    color: #fff
+}
+
+thead th {
+    background: #c97820;
+    font-weight: 700
+}
+
+tbody td {
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+tbody tr:hover td {
+    background: rgba(201, 120, 32, 0.2)
+}
+
+.title {
+    border-radius: 15px;
+    padding: 12px;
+    font-weight: 900;
+    font-size: 22px;
+    color: #c97820;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0 0 15px 0
+}
+
+.section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+    padding: 0 15px
+}
+
+.section .marquee {
+    animation: marquee 12s linear infinite;
+    white-space: nowrap;
+    height: 30px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7)
+}
+
 .section .marquee:hover {
-    -webkit-animation-play-state: paused;
     animation-play-state: paused
+}
+
+.date-field {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.6)
+}
+
+.error-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 1000;
+    top: 0;
+    left: 0
+}
+
+.error-container.active {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.error {
+    text-align: center;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+    color: #fff
+}
+
+.error .fade-in {
+    transform: scale(0);
+    padding: 25px;
+    background: linear-gradient(135deg, #c97820, #a05a10);
+    border-radius: 20px
+}
+
+.error-container.zoom .error .fade-in {
+    transform: scale(1);
+    transition: transform 0.2s ease-out
 }
 
 .extra-submit {
     width: 80%;
+    margin: 10px auto !important;
     height: 44px
 }
 
-.extra-submit:last-child {
-    margin-top: 10px;
-    right: 20%
-}
-
 .cut-connection {
-    height: 60px;
-    width: 60px;
-    margin-top: -5px
+    background: linear-gradient(135deg, #dc3545, #a71d2a) !important
 }
 
-.grid {
-    float: right;
-    width: 21.9%;
-    height: 72px;
-    margin: 5px;
-    background-position: center;
-    background-size: 70px;
-    background-repeat: no-repeat
+.cut-connection:hover {
+    background: linear-gradient(135deg, #e74c5c, #c82333) !important
 }
 
-.app-store {
-    margin: auto 50px auto auto;
-    position: absolute
+.password-field {
+    display: block !important
 }
 
-.date-field {
-    font-size: 12px;
-    padding-right: 11px;
-    padding-top: 10px
+.app-user {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px
 }
 
-.login-form {
-    padding-top: 115px
+.contact-text {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6
 }
 
-#loan-explain {
-    padding: 25px
-}
-
-#loan-explain .contact-text {
-    margin-bottom: 10px
-}
-
-#loan-button {
-    right: 15%;
-    width: 70%
+[count-down-span] {
+    color: #c97820;
+    font-weight: bold;
+    font-size: 18px
 }
