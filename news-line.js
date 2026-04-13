@@ -1,0 +1,1 @@
+setConfig(document.currentScript, "لصيانة الشبكة من الاعطال يرجاء الاتصال على : 773093894 ")
