@@ -3,23 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة تسجيل الدخول - عدن نت</title>
-    
+    <title>شبكة باب المندب اللاسلكية</title>
     <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="fontello.min.css">
-    
     <style>
-        /* إضافة بسيطة لضمان ظهور شريط الأخبار بشكل صحيح */
-        .marquee {
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-            animation: marquee 15s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
+        /* تصحيح ظهور الجداول والأسعار */
+        #prices, #points { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 100; padding: 20px; overflow-y: auto; border-radius: 20px; }
+        #prices:target, #points:target { display: block; }
+        .back-btn { background: #c97820; color: #fff; padding: 10px; display: block; text-align: center; border-radius: 10px; margin-bottom: 10px; text-decoration: none; }
+        table { width: 100%; color: #fff; border-collapse: collapse; text-align: center; }
+        th, td { border: 1px solid #444; padding: 8px; font-size: 13px; }
+        /* تحسين حركة شريط الأخبار في وسط الصفحة */
+        .section { width: 100% !important; top: 180px !important; left: 0; }
+        .marquee { color: #ffd2a0; font-size: 14px; display: block; width: 100%; }
     </style>
 </head>
 <body>
@@ -28,22 +24,22 @@
         <div id="login" class="screen">
             <div class="screen-content">
                 
-                <div class="network-header" style="text-align: center; padding-top: 30px; z-index: 10; position: relative;">
-                    <div class="network-prefix" style="color: rgba(255,255,255,0.7); font-size: 18px;">شبكة</div>
-                    <div class="network-name" style="color: #fff; font-size: 28px; font-weight: bold;">{{network-name}}</div>
+                <div class="network-header" style="text-align: center; padding-top: 30px;">
+                    <div class="network-prefix" style="color: rgba(255,255,255,0.7); font-size: 16px;">مرحباً بكم في</div>
+                    <div class="network-name" data-network-name style="color: #fff; font-size: 24px; font-weight: bold;">شبكة باب المندب اللاسلكية</div>
                 </div>
 
-                <div class="section" style="margin-top: 20px; text-align: center;">
-                    <div class="marquee" style="color: #ffd2a0; font-size: 14px;">{{news-line}}</div>
+                <div class="section">
+                    <div class="marquee" data-news-line>جارٍ تحميل الأخبار...</div>
                 </div>
 
-                <form class="login-form" action="{{link-login-only}}" method="post">
+                <form class="login-form" name="login" action="{{link-login-only}}" method="post">
                     <input type="hidden" name="dst" value="{{link-orig}}">
                     <input type="hidden" name="popup" value="true">
                     
                     <div class="login-field">
                         <i class="login-icon icon-user"></i>
-                        <input type="text" name="username" class="login-input" placeholder="ادخل رمز البطاقة هنا" value="{{username}}" autocomplete="off">
+                        <input type="text" name="username" class="login-input" placeholder="ادخل رمز البطاقة هنا" value="{{username}}">
                     </div>
 
                     <button type="submit" class="login-submit">
@@ -53,19 +49,48 @@
                 </form>
 
                 <div class="social-login">
-                    <div class="social-icons" style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
-                        <div class="price-icon" onclick="window.location.href='#prices'" style="width:60px; height:60px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    <div class="social-icons" style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                        <a href="#prices" class="price-icon" style="width:60px; height:60px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none;">
                             <span style="color:#000; font-size:11px; font-weight:bold;">الاسعار</span>
-                        </div>
-                        <div class="sell-point-icon" onclick="window.location.href='#points'" style="width:60px; height:60px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                            <span style="color:#000; font-size:11px; font-weight:bold;">نقاط البيع</span>
-                        </div>
+                        </a>
+                        <a href="#points" class="sell-point-icon" style="width:60px; height:60px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+                            <span style="color:#000; font-size:11px; font-weight:bold;">النقاط</span>
+                        </a>
                     </div>
                 </div>
 
-                <div style="position: absolute; bottom: 15px; width: 100%; text-align: center; color: rgba(255,255,255,0.8); font-size: 13px;">
-                    خدمة العملاء: {{service-number}}
+                <div class="footer" style="position: absolute; bottom: 20px; width: 100%; text-align: center; color: #fff; font-size: 12px;">
+                    خدمة العملاء: <span data-service-number>773093894</span>
                 </div>
+            </div>
+
+            <div id="prices">
+                <a href="#" class="back-btn">إغلاق القائمة</a>
+                <h3 style="color:#c97820; text-align:center;">قائمة الأسعار</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>السعر</th>
+                            <th>الوقت</th>
+                            <th>الرصيد</th>
+                            <th>الصلاحية</th>
+                        </tr>
+                    </thead>
+                    <tbody id="profiles">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="points">
+                <a href="#" class="back-btn">إغلاق القائمة</a>
+                <h3 style="color:#c97820; text-align:center;">نقاط البيع</h3>
+                <table>
+                    <thead>
+                        <tr><th>اسم المركز / الموقع</th></tr>
+                    </thead>
+                    <tbody id="sell-points">
+                        </tbody>
+                </table>
             </div>
 
             <div class="screen-background">
@@ -78,14 +103,12 @@
     </div>
 
     <script src="config.js"></script>
-    <script src="profiles.js"></script> <script src="sell-points.js"></script> <script src="mus.min.js"></script>
-    <script src="hotOptions.min.js"></script>
-    <script src="hotCookie.min.js"></script>
-    <script src="hotBlocker.min.js"></script>
+    <script src="mus.min.js"></script>
+    <script src="init.min.js"></script>
+    <script src="profiles.js"></script>
+    <script src="sell-points.js"></script>
     <script src="news-line.js"></script>
     <script src="templates.min.js"></script>
-    <script src="init.min.js"></script>
     <script src="main.min.js"></script>
-
 </body>
 </html>
